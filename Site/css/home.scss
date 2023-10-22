@@ -1,0 +1,48 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.background {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    background-repeat: cover;
+}
+
+li {
+    list-style: none;
+}
+
+
+.site {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+
+    .navBar {
+        padding: 20px 100px;
+        background-color: #000028;
+
+        >ul {
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            h1 {
+                color: white;
+            }
+
+            button {
+                width: 80px;
+                height: 30px;
+            }
+
+            ;
+        }
+    }
+}
