@@ -11,26 +11,71 @@
 
 <body>
 
-    <video autoplay muted loop class="background">
-        <source src="css/img/videoplayback.mp4" type="video/mp4">
+    <video autoplay muted loop class="videoBackground">
+        <source src="css/img/backgroundLogin.mp4" type="video/mp4">
     </video>
-
     <div class="site">
-        <nav class="navBar">
-            <ul>
 
-                <li>
-                    <h1> HollowNest Epidemic</h1>
+        <div class="cadastro">
+            <img src="./css/img/loginCadastro/Logo_hollowKnight Pandemic33 1.png" class="logo">
+            <div class="inputLogin" style="display: flex;" id="logar">
+                <b class="cadastroTXT">Usuário</b>
+                <input type="text" id="input_usuario">
+                <b class="cadastroTXT">Senha</b>
+                <input type="text" id="input_senha">
 
-                <li>
-                    <button>login</button>
-                </li>
-                <img src="css/img/Vector 1.svg" alt="">
-            </ul>
-        </nav>
-    </div>
+                <div class="button1">
+                    <button>Entrar</button>
+                    <img class="imgS" src="./css/img/select.png">
+
+                </div>
+                <div class="button2" onclick="trocarPLogin()">
+                    <button>Criar Conta</button>
+                    <img class="imgS" src="./css/img/select.png">
+
+                </div>
+            </div>
+
+
+            <div class="inputLogin" style="display: none;" id="cadastrar">
+                <b class="cadastroTXT">Usuário</b>
+                <input type="text" id="input_usuario">
+                <b class="cadastroTXT">Senha</b>
+                <input type="text" id="input_senha">
+                <b class="cadastroTXT">Confirmar Senha</b>
+                <input type="text" id="input_senha">
+
+                <div class="button1">
+                    <button style="width: 200px;">Cadastrar-se</button>
+                    <img class="imgS" src="./css/img/select.png">
+                </div>
+                <div class="button2" onclick="trocarCadastrar()">
+                    <button>Entrar</button>
+                    <img class="imgS" src="./css/img/select.png">
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+
 
 </body>
 
 
 </html>
+
+<script>
+
+    function trocarPLogin() {
+
+        logar.style.display = 'none';
+        cadastrar.style.display = 'flex';
+    }
+    function trocarCadastrar() {
+        logar.style.display = 'flex';
+        cadastrar.style.display = 'none ';
+    }
+</script>
