@@ -1,0 +1,71 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+
+
+body {
+    background-image: url(./img/greenpath/back.jpg);
+
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+}
+
+.fundo {
+    margin-top: 150px;
+    margin-bottom: 150px;
+
+    width: 1427.27px;
+    box-shadow: 0 10px 500px black;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+ 
+
+
+
+    .background2 {
+        width: 100%;
+        justify-content: center;
+        display: flex;
+        position: relative;
+
+    }
+
+    .logo {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+    }
+
+    .divisoria {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+
+        img {
+
+            width: 100%;
+            height: 100%;
+        }
+
+
+        position: relative;
+    }
+
+    .info {
+        position: absolute;
+        display: inline-flex;
+
+
+    }
+
+    #pg3 {
+
+        display: flex;
+        justify-content: center;
+        position: absolute;
+
+    }
+}

@@ -1,0 +1,50 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  background-image: url(./img/greenpath/back.jpg);
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+}
+
+.fundo {
+  margin-top: 150px;
+  margin-bottom: 150px;
+  width: 1427.27px;
+  box-shadow: 0 10px 500px black;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+}
+.fundo .background2 {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  position: relative;
+}
+.fundo .logo {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+}
+.fundo .divisoria {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
+.fundo .divisoria img {
+  width: 100%;
+  height: 100%;
+}
+.fundo .info {
+  position: absolute;
+  display: inline-flex;
+}
+.fundo #pg3 {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+}/*# sourceMappingURL=forgotten.css.map */
