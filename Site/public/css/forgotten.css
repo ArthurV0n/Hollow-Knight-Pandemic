@@ -4,16 +4,17 @@
 }
 
 body {
-  background-image: url(./img/greenpath/back.jpg);
   background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   justify-content: center;
 }
 
 .fundo {
-  margin-top: 150px;
-  margin-bottom: 150px;
-  width: 1427.27px;
+  margin-top: 200px;
+  margin-bottom: 200px;
+  width: 1920px;
   box-shadow: 0 10px 500px black;
   background-color: rgb(255, 255, 255);
   position: relative;
@@ -23,6 +24,7 @@ body {
   justify-content: center;
   display: flex;
   position: relative;
+  overflow: hidden;
 }
 .fundo .logo {
   position: absolute;
@@ -47,4 +49,5 @@ body {
   display: flex;
   justify-content: center;
   position: absolute;
+  margin: 50px;
 }/*# sourceMappingURL=forgotten.css.map */
