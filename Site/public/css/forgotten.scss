@@ -1,6 +1,9 @@
 * {
     padding: 0px;
     margin: 0px;
+    font-size: 30px;
+    text-align: center;
+    color: white;
 }
 
 
@@ -35,6 +38,10 @@ body {
         position: relative;
         overflow: hidden;
 
+        >img {
+            position: absolute;
+        }
+
     }
 
     .logo {
@@ -59,8 +66,15 @@ body {
     }
 
     .info {
-        position: absolute;
-        display: inline-flex;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        >img {
+            width: 50%;
+            align-self: center; 
+        }
 
 
     }

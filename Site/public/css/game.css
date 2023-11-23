@@ -1,0 +1,23 @@
+.map {
+  position: relative;
+  display: flex;
+  width: 500px;
+  height: 500px;
+  background-color: bisque;
+}
+.map .player {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-color: aquamarine;
+  top: 250px;
+  right: 250px;
+}
+.map .frente {
+  animation: walkFrente 1s;
+}
+@keyframes walkFrente {
+  to {
+    top: 50px;
+  }
+}/*# sourceMappingURL=game.css.map */

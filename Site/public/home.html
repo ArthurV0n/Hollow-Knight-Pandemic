@@ -4,81 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/home.css">
-
     <title>Document</title>
+    <link rel="stylesheet" href="./home.css">
 </head>
 
-
-<body>
-
-    <video autoplay muted loop class="Background">
-        <source src="css/img/backgroundLogin.mp4" type="video/mp4">
-    </video>
-    <div class="site">
-
-        <div class="cadastro">
-            <img src="./css/img/loginCadastro/Logo_hollowKnight Pandemic33 1.png" class="logo">
-            <div class="inputLogin" style="display: flex;" id="logar">
-                <b class="cadastroTXT">Usuário</b>
-                <input type="text" id="input_usuario">
-                <b class="cadastroTXT">Senha</b>
-                <input type="text" id="input_senha">
-
-                <div class="button1">
-                    <button>Entrar</button>
-                    <img class="imgS" src="./css/img/select.png">
-
-                </div>
-                <div class="button2" onclick="trocarPLogin()">
-                    <button>Criar Conta</button>
-                    <img class="imgS" src="./css/img/select.png">
-
-                </div>
-            </div>
+<body style="background-color: black;">
 
 
-            <div class="inputLogin" style="display: none;" id="cadastro">
-                <b class="cadastroTXT">Usuário</b>
-                <input type="text" id="input_usuario">
-                <b class="cadastroTXT">Senha</b>
-                <input type="text" id="input_senha">
-                <b class="cadastroTXT">Confirmar Senha</b>
-                <input type="text" id="input_senha">
 
-                <div class="button1">
-                    <button style="width: 200px;">Cadastrar-se</button>
-                    <img class="imgS" src="./css/img/select.png">
-                </div>
-                <div class="button2" onclick="trocarCadastrar()">
-                    <button>Entrar</button>
-                    <img class="imgS" src="./css/img/select.png">
+    <img src="./css/img/home/background.png" alt="">
+    <div class="logo"><img src="./css/img/home/Logo_hollowKnight Pandemic33 1 1.png"></div>
 
-                </div>
+    <div class="nav">
+        <ul>
+            <li onclick="Sair()">Sair <br> <img src="./css/img/select.png" class="imgli"></li>
+        </ul>
+    </div>
 
-
-            </div>
-        </div>
-
+    <div class="ballon">
+        <img src="./css/img/home/ballon_spawn.gif" style="width: 10%;">
+    </div>
 
 
 
 </body>
 
-
 </html>
 
 <script>
-
-    function trocarPLogin() {
-
-        logar.style.display = 'none';
-        cadastro.style.display = 'flex';
+    function Sair() {
+        window.location = "cadastro.html";
     }
-    function trocarCadastrar() {
-        logar.style.display = 'flex';
-        cadastro.style.display = 'none ';
-    }
-
-
 </script>

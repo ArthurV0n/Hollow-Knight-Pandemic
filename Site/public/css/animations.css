@@ -29,3 +29,35 @@
     }
 
 }
+
+.ballon {
+
+
+    position: absolute;
+    display: inline-flex;
+    animation: huskwalk 20s infinite linear;
+    cursor: pointer;
+    overflow: hidden;
+
+}
+
+@keyframes huskwalk {
+    from {
+
+        right: -15vw;
+    }
+
+    to {
+        right: 90vw;
+    }
+
+}
+
+@keyframes huskrun {
+    from {}
+
+    to {
+        right: 90vw;
+    }
+
+}
