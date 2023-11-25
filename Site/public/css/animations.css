@@ -2,7 +2,6 @@
 
 
     position: absolute;
-    display: inline-flex;
     animation: huskwalk 20s infinite linear;
     cursor: pointer;
     overflow: hidden;

@@ -10,16 +10,18 @@
 
   <script src="./js/sessao.js"></script>
 
-  <link rel="icon" href="./assets/icon/favicon2.ico" />
+
+  <link rel="shortcut icon" type="imagex/png" href="./css/img/icon.png">
   <link rel="stylesheet" href="./css/estilo.css" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link
     href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="css/cadastro.css">
+  <link rel="shortcut icon" type="imagex/png" href="./css/img/icon.png">
 </head>
 
-<body onload="listar()">
+<body>
   <!--header inicio-->
   <video autoplay muted loop class="Background">
     <source src="css/img/backgroundLogin.mp4" type="video/mp4">
@@ -39,6 +41,9 @@
       <div class="cadastro">
         <img src="./css/img/loginCadastro/Logo_hollowKnight Pandemic33 1.png" class="logo">
         <div class="inputLogin" style="display: flex;" id="logar">
+
+
+
           <b class="cadastroTXT">Usuário</b>
           <input type="text" id="input_usuarioLogin">
           <b class="cadastroTXT">Senha</b>
@@ -114,6 +119,61 @@
 
     var senhaVar = input_senhaCadastro.value;
     var confirmacaoSenhaVar = input_Confirmarsenha.value;
+    var erroMensagem = ''
+
+    if (
+      nomeVar.indexOf("#") >= 0 ||
+      nomeVar.indexOf("@") >= 0 ||
+      nomeVar.indexOf("!") >= 0 ||
+      nomeVar.indexOf("%") >= 0 ||
+      nomeVar.indexOf("*") >= 0 ||
+      nomeVar.indexOf("$") >= 0 ||
+      nomeVar.indexOf("&") >= 0
+
+    ) {
+      cardErro.style.display = "flex"
+      erroMensagem += `-Não pode haver caracter especial no nome de Usuário<br>`;
+
+
+    }
+
+
+
+
+    //SENHA
+
+    if (senhaVar.length < 8) {
+      erroMensagem += `-A senha deve possuir no mínimo 8 caracteres <br>`;
+      cardErro.style.display = "flex";
+
+    }
+
+    if (senhaVar.indexOf(" ") >= 0) {
+      erroMensagem += `-Não pode conter espaços na senha <br>`;
+      cardErro.style.display = "flex";
+
+    }
+
+    if (
+      !(senhaVar.indexOf("#") >= 1 ||
+        senhaVar.indexOf("@") >= 1 ||
+        senhaVar.indexOf("!") >= 1 ||
+        senhaVar.indexOf("%") >= 1 ||
+        senhaVar.indexOf("*") >= 1 ||
+        senhaVar.indexOf("$") >= 1 ||
+        senhaVar.indexOf("_") >= 1 ||
+        senhaVar.indexOf("-") >= 1 ||
+        senhaVar.indexOf("&") >= 1)
+    ) {
+      erroMensagem += `-A senha deve possuir no mínimo 1 caracter especial <br>`;
+      cardErro.style.display = "block";
+
+    }
+    ///confirmar senha
+    if (senhaVar != confirmacaoSenhaVar) {
+      erroMensagem += `-Senhas incompatíveis`;
+
+    }
 
     if (
       nomeVar == "" ||
@@ -123,14 +183,15 @@
 
     ) {
       cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
+
 
       finalizarAguardar();
       return false;
     } else {
-      setInterval(sumirMensagem, 5000);
+      setInterval(sumirMensagem, 8000);
     }
+    cardErro.style.display = "block";
+    mensagem_erro.innerHTML = erroMensagem;
 
 
     // Enviando o valor da nova input
@@ -156,9 +217,8 @@
           mensagem_erro.innerHTML =
             "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
-          setTimeout(() => {
-            window.location = "login.html";
-          }, "2000");
+          setTimeout(trocarPLogin()
+            , "2000");
 
           limparFormulario();
           finalizarAguardar();
@@ -172,6 +232,8 @@
       });
 
     return false;
+
+
   }
 
 
@@ -201,7 +263,7 @@
 
     if (nomeVar == "" || senhaVar == "") {
       cardErro.style.display = "block"
-      mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+      mensagem_erro.innerHTML = "todos os campos estão vazios ";
       finalizarAguardar();
       return false;
     }
@@ -233,7 +295,7 @@
           sessionStorage.NOME_USUARIO = json.nome;
 
           setTimeout(function () {
-            window.location = "forgottenCrossroads.html";
+            window.location = "home.html";
           }, 1000); // apenas para exibir o loading
 
         });
