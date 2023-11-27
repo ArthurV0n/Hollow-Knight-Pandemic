@@ -10,7 +10,7 @@ function start() {
         loopChamar();
         loop();
     }
-    console.log(stopedgame, 'AAAAAAAAA')
+
     inimigo.style.display = 'none';
     item.style.display = 'none';
 
@@ -19,13 +19,13 @@ function start() {
 
 function loopChamar() {
     if (stopedgame == 1) return
-    console.log(stopedgame, 'AAAAAAAAA')
+
 
     inimigo.style.display = 'none'
     inimigo.style.animation = 'none'
 
     var Naleatorio = parseInt(1 + Math.random() * 10)
-    console.log(Naleatorio)
+
 
     if (Naleatorio > 5) {
 

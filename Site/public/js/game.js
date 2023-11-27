@@ -1,6 +1,5 @@
 
 var pdpular = 1
-var contador = 0
 var qtdGeo = 0
 var stopedgame = 1
 
