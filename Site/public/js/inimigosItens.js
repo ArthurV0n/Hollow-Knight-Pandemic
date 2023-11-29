@@ -4,22 +4,45 @@ var inimigoHornedHusk = "./css/img/game/inimigos/huskHorned.gif";
 
 
 function start() {
-    if (stopedgame == 0) stopedgame = 1
+    if (stopedgame == 0) {
+        stopedgame = 1
+        mortePlayer()
+        buscarPorPontosBD()
+        // cadastrarPonto()
+
+    }
     else if (stopedgame == 1) {
         stopedgame = 0
         loopChamar();
         loop();
+        player.src = './css/img/game/player/HollowKnightRun.gif'
+        setInterval(Ground, 100)
+
+        setInterval(() => {
+            startID.style.display = 'none'
+        }, 300)
+
+
     }
 
-    inimigo.style.display = 'none';
+
+
+    console.log(stopedgame);
+
     item.style.display = 'none';
 
+    ground2.style.animation = 'none'
+    ground1.style.animation = 'none'
 
+    inimigo.style.animation = 'none'
+    inimigo.style.display = 'none';
+    roof2.style.animation = 'none'
+    roof1.style.animation = 'none'
 }
 
 function loopChamar() {
     if (stopedgame == 1) return
-
+    console.log(stopedgame);
 
     inimigo.style.display = 'none'
     inimigo.style.animation = 'none'
@@ -43,4 +66,18 @@ function loopChamar() {
 
         , tempoChamar);
 }
+
+function Ground() {
+    if (stopedgame == 1) return
+
+
+    ground1.style.animation = 'groundAnim 5s linear infinite'
+    ground2.style.animation = 'groundAnim2 5s linear infinite'
+    roof2.style.animation = 'groundAnim 5s linear infinite'
+    roof1.style.animation = 'groundAnim2 5s linear infinite'
+
+
+
+}
+
 

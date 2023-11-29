@@ -7,6 +7,13 @@
     <title>Hollow Knight Pandemic</title>
     <link rel="shortcut icon" type="imagex/png" href="./css/img/icon.png">
     <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/game.css">
+    <script src="./js/game.js"></script>
+    <script src="./js/inimigosItens.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src=".src\controllers\usuarioController.js"></script>
+
+
 
 
 </head>
@@ -20,8 +27,8 @@
             <div class="nav">
 
                 <ul>
-                    <li onclick="Sair()">
-                        <a href="./cadastro.html">Sair</a>
+                    <li>
+                        <a href="./index.html">Sair</a>
                         <img src="./css/img/select.png" class="imgli ">
                     </li>
                 </ul>
@@ -67,7 +74,7 @@
                     uma pandemia. no jogo acontece aliança entre reinos os quais se encontravam em guerra para impedir o
                     avanço da doença.</p>
                 <p>
-                    Como a doença se manifesta em hollow Knight:
+                    como acontece essas alianças em hollow Knight:
                 </p>
                 <p>
                     <b><a href="./greenPath.html">=>GreenPath</a></b>
@@ -102,9 +109,91 @@
         <div class="divisoria">
             <img src="./css/img/home/divisoria.png">
         </div>
+        <div class="subtitulo">
+            <img src="./css/img/select2.png" style="width: 2%;  margin-right: 1vw;;" alt="">
+            <h1>GAME</h1><img src=" ./css/img/select3.png" alt="" style="width: 2%; margin-left: 1vw;">
+        </div>
+
+
+        <div class="displayGame">
+
+            <div class="game" onclick="podePular()">
+
+
+
+                <div id="map" class="map">
+
+                    <img src="./css/img/game/player/hollowKnightIdle.png" class="PlayerClass" id="player">
+                    <img src="./css/img/game/inimigos/huskHorned.gif" class="inimigoClass" id="inimigo">
+                    <img src="./css/img/game/itens/Geo.webp" id="item" class="itemClass">
+
+
+                </div>
+                <img src="./css/img/game/chão.png" class="groundClass" id="ground1">
+                <img src="./css/img/game/chão.png" class="groundClass" id="ground2">
+                <img src="./css/img/game/teto.png" class="roofClass" id="roof1">
+                <img src="./css/img/game/teto.png" class="roofClass" id="roof2">
+
+
+            </div>
+            <div class="start" id="startID" onclick="start()">
+                <div>
+                    <h1>START</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="graficoClass">
+            <div class="ChartClass">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
     </div>
+
+
 
 
 </body>
 
 </html>
+
+
+<script>
+
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Player 3', 'Player 1', 'Player 2'],
+            datasets: [{
+                label: 'Ranking dos 3 melhores colocados',
+                data: [12, 19, 15],
+                borderWidth: 1,
+                backgroundColor: '#fad672',
+
+            }]
+        },
+        options: {
+            scales: {
+
+
+
+                y: {
+                    beginAtZero: true
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        // This more specific font property overrides the global property
+                        font: {
+                            size: 20,
+
+                        }
+                    }
+                }
+            }
+        }
+    });
+</script>

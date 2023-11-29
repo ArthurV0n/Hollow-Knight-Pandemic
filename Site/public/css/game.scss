@@ -4,19 +4,91 @@
 }
 
 
+
+.startClass {
+    margin-top: 2vh;
+    height: 10vh;
+    width: 10vw;
+}
+
+.roofClass {
+    position: absolute;
+    bottom: 65%;
+}
+
+.displayGame {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10vh;
+    margin-top: 10vh;
+}
+
+.game {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    width: 60vw;
+    overflow: hidden;
+    cursor: pointer;
+
+    .groundClass {
+
+        position: absolute;
+        bottom: -5%;
+        animation: nonea;
+    }
+
+
+
+    @keyframes groundAnim {
+        from {
+            right: 0%;
+
+        }
+
+        to {
+
+            right: 100%;
+        }
+    }
+
+    @keyframes groundAnim2 {
+        from {
+            right: -100%;
+
+        }
+
+        to {
+
+            right: 0%;
+        }
+    }
+
+
+
+}
+
+
 .map {
     position: relative;
     display: flex;
     width: 60vw;
     height: 50vh;
-    background-color: bisque;
+    background-color: rgb(3, 0, 23);
     border: 1px solid black;
-    margin-left: 10vw;
+
     overflow: hidden;
 
     .PlayerClass {
         position: absolute;
-        height: 40%;
+        height: 30%;
         bottom: 0;
         margin-left: 2vw;
         animation: none;

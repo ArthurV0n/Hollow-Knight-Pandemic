@@ -6,26 +6,41 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Hollow Knight Pandemic</title>
+  <title>AquaTech | Cadastro</title>
 
   <script src="./js/sessao.js"></script>
 
-
-  <link rel="shortcut icon" type="imagex/png" href="./css/img/icon.png">
+  <link rel="icon" href="./assets/icon/favicon2.ico" />
   <link rel="stylesheet" href="./css/estilo.css" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link
     href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="css/cadastro.css">
-  <link rel="shortcut icon" type="imagex/png" href="./css/img/icon.png">
 </head>
 
-<body>
+<body onload="listar()">
   <!--header inicio-->
-  <video autoplay muted loop class="Background">
-    <source src="css/img/backgroundLogin.mp4" type="video/mp4">
-  </video>
+  <div class="header">
+    <div class="container">
+      <h1 class="titulo">AquaTech</h1>
+      <ul class="navbar">
+        <li>
+          <a href="index.html">Inicial</a>
+        </li>
+        <li>
+          <a href="simulador.html">Simulador</a>
+        </li>
+        <li>|</li>
+        <li>
+          <a href="login.html">Login</a>
+        </li>
+        <li class="agora">
+          <a href="#">Cadastro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!--header fim-->
 
   <div class="login">
     <div class="alerta_erro">
@@ -33,77 +48,55 @@
         <span id="mensagem_erro"></span>
       </div>
     </div>
-
-
-
-
-    <div class="site">
-      <div class="cadastro">
-        <img src="./css/img/loginCadastro/Logo_hollowKnight Pandemic33 1.png" class="logo">
-        <div class="inputLogin" style="display: flex;" id="logar">
-
-
-
-          <b class="cadastroTXT">Usuário</b>
-          <input type="text" id="input_usuarioLogin">
-          <b class="cadastroTXT">Senha</b>
-          <input type="text" id="input_senhaLogin">
-
-          <div class="button1" onclick="entrar()">
-            <button>Entrar</button>
-            <img class="imgS" src="./css/img/select.png">
-
+    <div class="container">
+      <div class="card card-cadastro">
+        <h2>Bem-vindo!</h2>
+        <div class="formulario">
+          <!--
+                         Para inserir mais um campo, copie uma das inputs abaixo.
+                         Assim que inserir vá para o script abaixo.
+                     -->
+          <div class="campo">
+            <span>Empresa:</span>
+            <select name="empresas" id="listaEmpresas">
+              <option selected>Selecione uma empresa</option>
+            </select>
           </div>
-          <div class="button2" onclick="trocarPLogin()">
-            <button>Criar Conta</button>
-            <img class="imgS" src="./css/img/select.png">
-
+          <div class="campo">
+            <span>Nome:</span>
+            <input id="nome_input" type="text" placeholder="Seu nome" />
           </div>
+          <div class="campo">
+            <span>E-mail:</span>
+            <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
+          </div>
+          <div class="campo">
+            <span>Senha:</span>
+            <input id="senha_input" type="password" placeholder="******" />
+          </div>
+          <div class="campo">
+            <span>Confirmação da Senha:</span>
+            <input id="confirmacao_senha_input" type="password" placeholder="******" />
+          </div>
+          <button class="botao" onclick="cadastrar()">Cadastrar</button>
+        </div>
+        <div id="div_aguardar" class="loading-div">
+          <img src="./assets/circle-loading.gif" id="loading-gif" />
         </div>
 
-
-
-
-
-        <div class="inputLogin" style="display: none;" id="cadastro">
-          <b class="cadastroTXT">Usuário</b>
-          <input type="text" id="input_usuarioCadastro">
-
-
-          <b class="cadastroTXT">Senha</b>
-          <input type="text" id="input_senhaCadastro">
-
-
-          <b class="cadastroTXT">Confirmar Senha</b>
-          <input type="text" id="input_Confirmarsenha">
-
-          <div class="button1">
-            <button style="width: 200px;" onclick="cadastrar()">Cadastrar-se</button>
-            <img class="imgS" src="./css/img/select.png">
-          </div>
-          <div class="button2" onclick="trocarCadastrar()">
-            <button>Entrar</button>
-            <img class="imgS" src="./css/img/select.png">
-
-          </div>
-
-
-        </div>
+        <div id="div_erros_login"></div>
       </div>
-
-
-
-
-
-
     </div>
-    <div id="div_aguardar" class="loading-div">
-      <img src="./assets/circle-loading.gif" id="loading-gif" />
-    </div>
-    <div id="div_erros_login"></div>
   </div>
 
-
+  <!--footer inicio-->
+  <div class="footer">
+    <div class="container">
+      <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
+      <span class="version">v1.0.0</span>
+    </div>
+  </div>
+  <!--footer fim-->
 </body>
 
 </html>
@@ -114,85 +107,27 @@
 
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
-
-    var nomeVar = input_usuarioCadastro.value;
-
-    var senhaVar = input_senhaCadastro.value;
-    var confirmacaoSenhaVar = input_Confirmarsenha.value;
-    var erroMensagem = ''
-
-    if (
-      nomeVar.indexOf("#") >= 0 ||
-      nomeVar.indexOf("@") >= 0 ||
-      nomeVar.indexOf("!") >= 0 ||
-      nomeVar.indexOf("%") >= 0 ||
-      nomeVar.indexOf("*") >= 0 ||
-      nomeVar.indexOf("$") >= 0 ||
-      nomeVar.indexOf("&") >= 0
-
-    ) {
-      cardErro.style.display = "flex"
-      erroMensagem += `-Não pode haver caracter especial no nome de Usuário<br>`;
-
-
-    }
-
-
-
-
-    //SENHA
-
-    if (senhaVar.length < 8) {
-      erroMensagem += `-A senha deve possuir no mínimo 8 caracteres <br>`;
-      cardErro.style.display = "flex";
-
-    }
-
-    if (senhaVar.indexOf(" ") >= 0) {
-      erroMensagem += `-Não pode conter espaços na senha <br>`;
-      cardErro.style.display = "flex";
-
-    }
-
-    if (
-      !(senhaVar.indexOf("#") >= 1 ||
-        senhaVar.indexOf("@") >= 1 ||
-        senhaVar.indexOf("!") >= 1 ||
-        senhaVar.indexOf("%") >= 1 ||
-        senhaVar.indexOf("*") >= 1 ||
-        senhaVar.indexOf("$") >= 1 ||
-        senhaVar.indexOf("_") >= 1 ||
-        senhaVar.indexOf("-") >= 1 ||
-        senhaVar.indexOf("&") >= 1)
-    ) {
-      erroMensagem += `-A senha deve possuir no mínimo 1 caracter especial <br>`;
-      cardErro.style.display = "block";
-
-    }
-    ///confirmar senha
-    if (senhaVar != confirmacaoSenhaVar) {
-      erroMensagem += `-Senhas incompatíveis`;
-
-    }
-
+    var nomeVar = nome_input.value;
+    var emailVar = email_input.value;
+    var senhaVar = senha_input.value;
+    var confirmacaoSenhaVar = confirmacao_senha_input.value;
+    var empresaVar = listaEmpresas.value
     if (
       nomeVar == "" ||
+      emailVar == "" ||
       senhaVar == "" ||
-      confirmacaoSenhaVar == ""
-
-
+      confirmacaoSenhaVar == "" ||
+      empresaVar == ""
     ) {
       cardErro.style.display = "block";
-
+      mensagem_erro.innerHTML =
+        "(Mensagem de erro para todos os campos em branco)";
 
       finalizarAguardar();
       return false;
     } else {
-      setInterval(sumirMensagem, 8000);
+      setInterval(sumirMensagem, 5000);
     }
-    cardErro.style.display = "block";
-    mensagem_erro.innerHTML = erroMensagem;
-
 
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
@@ -204,8 +139,9 @@
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
-        senhaServer: senhaVar
-
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+        empresaServer: empresaVar
       }),
     })
       .then(function (resposta) {
@@ -217,8 +153,9 @@
           mensagem_erro.innerHTML =
             "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
-          setTimeout(trocarPLogin()
-            , "2000");
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
 
           limparFormulario();
           finalizarAguardar();
@@ -232,93 +169,25 @@
       });
 
     return false;
-
-
   }
 
-
+  function listar() {
+    fetch("/empresas/listar", {
+      method: "GET",
+    })
+      .then(function (resposta) {
+        resposta.json().then((empresas) => {
+          empresas.forEach((empresa) => {
+            listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
+          });
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
 
   function sumirMensagem() {
     cardErro.style.display = "none";
   }
-  function trocarPLogin() {
-
-    logar.style.display = 'none';
-    cadastro.style.display = 'flex';
-  }
-  function trocarCadastrar() {
-    logar.style.display = 'flex';
-    cadastro.style.display = 'none ';
-  }
-
-
-
-
-
-  function entrar() {
-    aguardar();
-
-    var nomeVar = input_usuarioLogin.value;
-    var senhaVar = input_senhaLogin.value;
-
-    if (nomeVar == "" || senhaVar == "") {
-      cardErro.style.display = "block"
-      mensagem_erro.innerHTML = "todos os campos estão vazios ";
-      finalizarAguardar();
-      return false;
-    }
-    else {
-      setInterval(sumirMensagem, 5000)
-    }
-
-    console.log("FORM LOGIN: ", nomeVar);
-    console.log("FORM SENHA: ", senhaVar);
-
-    fetch("/usuarios/autenticar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        nomeServer: nomeVar,
-        senhaServer: senhaVar
-      })
-    }).then(function (resposta) {
-      console.log("ESTOU NO THEN DO entrar()!")
-
-      if (resposta.ok) {
-        console.log(resposta);
-
-        resposta.json().then(json => {
-          console.log(json);
-          console.log(JSON.stringify(json));
-          sessionStorage.NOME_USUARIO = json.nome;
-
-          setTimeout(function () {
-            window.location = "home.html";
-          }, 1000); // apenas para exibir o loading
-
-        });
-
-      } else {
-
-        console.log("Houve um erro ao tentar realizar o login!");
-
-        resposta.text().then(texto => {
-          console.error(texto);
-          finalizarAguardar(texto);
-        });
-      }
-
-    }).catch(function (erro) {
-      console.log(erro);
-    })
-
-    return false;
-  }
-
-  function sumirMensagem() {
-    cardErro.style.display = "none"
-  }
-
 </script>

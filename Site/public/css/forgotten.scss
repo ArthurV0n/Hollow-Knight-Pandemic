@@ -37,6 +37,7 @@ body {
         list-style: none;
 
         >li {
+            width: 16vw;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -48,6 +49,9 @@ body {
             width: 200px;
             cursor: pointer;
 
+            >a {
+                width: 16vw;
+            }
 
         }
     }

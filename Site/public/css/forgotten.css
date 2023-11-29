@@ -34,6 +34,7 @@ body {
   list-style: none;
 }
 .nav > ul > li {
+  width: 16vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,6 +45,9 @@ body {
   animation: transicaoDesc;
   width: 200px;
   cursor: pointer;
+}
+.nav > ul > li > a {
+  width: 16vw;
 }
 
 .fundo {

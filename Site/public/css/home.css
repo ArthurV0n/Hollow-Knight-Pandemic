@@ -3,6 +3,18 @@
   padding: 0px;
 }
 
+.subtitulo {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.subtitulo > h1 {
+  color: white;
+  font-size: 50px;
+}
+
 a {
   text-decoration: none;
   color: white;
@@ -25,6 +37,42 @@ a {
   position: absolute;
   margin-top: 100vh;
   background-color: black;
+}
+
+.start {
+  POSITION: ABSOLUTE;
+  height: 63vh;
+  width: 65vw;
+  cursor: pointer;
+}
+.start > div {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3vw;
+  color: rgba(255, 255, 255, 0.35);
+}
+.start > div > h1 {
+  margin-top: 20vh;
+}
+
+.start:active {
+  transform: translateY(5px);
+  cursor: pointer;
+}
+
+.graficoClass {
+  margin-top: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 10vh;
+}
+
+.ChartClass {
+  width: 40%;
 }
 
 .logo {
@@ -122,4 +170,11 @@ li:hover .imgli {
   position: absolute;
   animation: ballon;
   height: 200vh;
+}
+
+.subtitulo {
+  margin-top: 10vh;
+}
+.subtitulo > h1 {
+  font-size: 6vh;
 }/*# sourceMappingURL=home.css.map */

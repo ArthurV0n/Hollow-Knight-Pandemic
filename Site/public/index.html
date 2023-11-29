@@ -1,85 +1,343 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>AquaTech | Página Inicial</title>
+  <title>Hollow Knight Pandemic</title>
 
-    <script src="./js/sessao.js"></script>
+  <script src="./js/sessao.js"></script>
 
-    <link rel="icon" href="./assets/icon/favicon2.ico">
-    <link rel="stylesheet" href="./css/estilo.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <!-- <link
-        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet"> -->
+
+  <link rel="shortcut icon" type="imagex/png" href="./css/img/icon.png">
+  <link rel="stylesheet" href="./css/estilo.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/cadastro.css">
+  <link rel="shortcut icon" type="imagex/png" href="./css/img/icon.png">
 </head>
 
 <body>
-    <div class="header">
-      <div class="container">
-        <h1 class="titulo">AquaTech</h1>
-        <ul class="navbar">
-          <li class="agora">
-            <a href="#">Inicial</a>
-          </li>
-          <li>
-            <a href="simulador.html">Simulador</a>
-          </li>
-          <li>|</li>
-          <li>
-            <a href="login.html">Login</a>
-          </li>
-          <li>
-            <a href="cadastro.html">Cadastro</a>
-          </li>
-        </ul>
+  <!--header inicio-->
+  <video autoplay muted loop class="Background">
+    <source src="css/img/backgroundLogin.mp4" type="video/mp4">
+  </video>
+
+  <div class="login">
+    <div class="alerta_erro">
+      <div class="card_erro" id="cardErro">
+        <span id="mensagem_erro"></span>
       </div>
     </div>
-  
-    <div class="banner">
-      <div class="container">
-        <p>Preservando <span>hoje</span> para existirem <span>amanhã</span>.</p>
-      </div>
-    </div>
-  
-    <div class="social">
-      <div class="container">
-        <div class="boxes">
-          <div class="box">
-            <img src="assets/imgs/planet-earth_color.png">
-            <h4>Missão</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-              vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-              minima.</p>
+
+
+
+
+    <div class="site">
+      <div class="cadastro">
+        <img src="./css/img/loginCadastro/Logo_hollowKnight Pandemic33 1.png" class="logo">
+        <div class="inputLogin" style="display: flex;" id="logar">
+
+
+
+          <b class="cadastroTXT">Usuário</b>
+          <input type="text" id="input_usuarioLogin">
+          <b class="cadastroTXT">Senha</b>
+          <input type="password" id="input_senhaLogin">
+
+          <div class="button1" onclick="entrar()">
+            <button>Entrar</button>
+            <img class="imgS" src="./css/img/select.png">
+
           </div>
-          <div class="box">
-            <img src="assets/imgs/lightbulb_color.png">
-            <h4>Visão</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-              vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-              minima.</p>
-          </div>
-          <div class="box">
-            <img src="assets/imgs/growth_color.png">
-            <h4>Valores</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-              vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-              minima.</p>
+          <div class="button2" onclick="trocarPLogin()">
+            <button>Criar Conta</button>
+            <img class="imgS" src="./css/img/select.png">
+
           </div>
         </div>
+
+
+
+
+
+        <div class="inputLogin" style="display: none;" id="cadastro">
+          <b class="cadastroTXT">Usuário</b>
+          <input type="text" id="input_usuarioCadastro">
+
+
+          <b class="cadastroTXT">Senha</b>
+          <input type="password" id="input_senhaCadastro">
+
+
+          <b class="cadastroTXT">Confirmar Senha</b>
+          <input type="password" id="input_Confirmarsenha">
+
+          <div class="button1">
+            <button style="width: 200px;" onclick="cadastrar()">Cadastrar-se</button>
+            <img class="imgS" src="./css/img/select.png">
+          </div>
+          <div class="button2" onclick="trocarCadastrar()">
+            <button>Entrar</button>
+            <img class="imgS" src="./css/img/select.png">
+
+          </div>
+
+
+        </div>
       </div>
+
+
+
+
+
+
     </div>
-  
-    <div class="footer">
-      <div class="container">
-        <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-        <span class="version">v1.0.0</span>
-      </div>
+    <div id="div_aguardar" class="loading-div">
+      <img src="./assets/circle-loading.gif" id="loading-gif" />
     </div>
-  </body>
+    <div id="div_erros_login"></div>
+  </div>
+
+
+</body>
 
 </html>
+
+<script>
+  function cadastrar() {
+    aguardar();
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+
+    var nomeVar = input_usuarioCadastro.value;
+
+    var senhaVar = input_senhaCadastro.value;
+    var confirmacaoSenhaVar = input_Confirmarsenha.value;
+    var erroMensagem = ''
+    var validacao = 0;
+
+    if (
+      nomeVar.indexOf("#") >= 0 ||
+      nomeVar.indexOf("@") >= 0 ||
+      nomeVar.indexOf("!") >= 0 ||
+      nomeVar.indexOf("%") >= 0 ||
+      nomeVar.indexOf("*") >= 0 ||
+      nomeVar.indexOf("$") >= 0 ||
+      nomeVar.indexOf("&") >= 0
+
+    ) {
+      cardErro.style.display = "flex"
+      erroMensagem += `-Não pode haver caracter especial no nome de Usuário<br>`;
+      validacao = 1
+
+    }
+
+
+
+
+    //SENHA
+
+    if (senhaVar.length < 8) {
+      erroMensagem += `-A senha deve possuir no mínimo 8 caracteres <br>`;
+      cardErro.style.display = "flex";
+      validacao = 1
+
+    }
+
+    if (senhaVar.indexOf(" ") >= 0) {
+      erroMensagem += `-Não pode conter espaços na senha <br>`;
+      cardErro.style.display = "flex";
+      validacao = 1
+
+    }
+
+    if (
+      !(senhaVar.indexOf("#") > 0 ||
+        senhaVar.indexOf("@") > 0 ||
+        senhaVar.indexOf("!") > 0 ||
+        senhaVar.indexOf("%") > 0 ||
+        senhaVar.indexOf("*") > 0 ||
+        senhaVar.indexOf("$") > 0 ||
+        senhaVar.indexOf("_") > 0 ||
+        senhaVar.indexOf("-") > 0 ||
+        senhaVar.indexOf("&") > 0)
+    ) {
+      erroMensagem += `-A senha deve possuir no mínimo 1 caracter especial <br>`;
+      cardErro.style.display = "block";
+
+
+    }
+    ///confirmar senha
+    if (senhaVar != confirmacaoSenhaVar) {
+      erroMensagem += `-Senhas incompatíveis`;
+      validacao = 1
+
+    }
+
+    if (
+      nomeVar == "" ||
+      senhaVar == "" ||
+      confirmacaoSenhaVar == ""
+
+
+    ) {
+      cardErro.style.display = "block";
+      validacao = 1
+
+      finalizarAguardar();
+      return false;
+    }
+
+
+
+    if (validacao == 1) {
+      cardErro.style.display = "block";
+
+      setInterval(sumirMensagem, 8000);
+      return false;
+      console.log('CADASTRO DESGRAÇADO')
+    } else {
+
+
+      // Enviando o valor da nova input
+      fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          nomeServer: nomeVar,
+          senhaServer: senhaVar
+
+        }),
+      })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+
+          if (resposta.ok) {
+            cardErro.style.display = "block";
+
+            mensagem_erro.innerHTML =
+              "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+
+            setTimeout(trocarCadastrar()
+              , "2000");
+
+            limparFormulario();
+            finalizarAguardar();
+          } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+          finalizarAguardar();
+        });
+
+      return false;
+    }
+
+  }
+
+
+
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
+  function trocarPLogin() {
+
+    logar.style.display = 'none';
+    cadastro.style.display = 'flex';
+  }
+  function trocarCadastrar() {
+    logar.style.display = 'flex';
+    cadastro.style.display = 'none ';
+  }
+
+
+
+
+
+  function entrar() {
+    aguardar();
+
+    var nomeVar = input_usuarioLogin.value;
+    var senhaVar = input_senhaLogin.value;
+    var idUsuario = sessionStorage.ID_USUARIO;
+
+    if (nomeVar == "" || senhaVar == "") {
+      cardErro.style.display = "block"
+      mensagem_erro.innerHTML = "todos os campos estão vazios ";
+      finalizarAguardar();
+      return false;
+    }
+    else {
+      setInterval(sumirMensagem, 5000)
+    }
+
+    console.log("FORM LOGIN: ", nomeVar);
+    console.log("FORM SENHA: ", senhaVar);
+
+    fetch("/usuarios/autenticar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        nomeServer: nomeVar,
+        senhaServer: senhaVar
+      })
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN DO entrar()!")
+
+      if (resposta.ok) {
+        console.log(resposta);
+
+        resposta.json().then(json => {
+          console.log(json);
+          console.log(JSON.stringify(json));
+          sessionStorage.NOME_USUARIO = json.nome;
+          sessionStorage.ID_USUARIO = json.id;
+
+          setTimeout(function () {
+            window.location = "home.html";
+          }, 1000); // apenas para exibir o loading
+
+        });
+
+      } else {
+
+        console.log("Houve um erro ao tentar realizar o login!");
+
+        resposta.text().then(texto => {
+          console.error(texto);
+          finalizarAguardar(texto);
+        });
+      }
+
+    }).catch(function (erro) {
+      console.log(erro);
+    })
+
+    return false;
+  }
+
+  function sumirMensagem() {
+    cardErro.style.display = "none"
+  }
+
+
+
+
+
+
+</script>

@@ -8,19 +8,31 @@
     <link rel="stylesheet" href="./css/game.css">
     <script src="./js/game.js"></script>
     <script src="./js/inimigosItens.js"></script>
+
 </head>
 
 <body>
-    <div id="map" class="map">
+    <div class="displayGame">
+        <div class="game" onclick="podePular()">
 
-        <img src="./css/img/game/player/HollowKnightRun.gif" class="PlayerClass" id="player">
-        <img src="./css/img/game/inimigos/huskHorned.gif" class="inimigoClass" id="inimigo">
-        <img src="./css/img/game/itens/Geo.webp" id="item" class="itemClass">
+            <div id="map" class="map">
+
+                <img src="./css/img/game/player/hollowKnightIdle.png" class="PlayerClass" id="player">
+                <img src="./css/img/game/inimigos/huskHorned.gif" class="inimigoClass" id="inimigo">
+                <img src="./css/img/game/itens/Geo.webp" id="item" class="itemClass">
+
+
+            </div>
+            <img src="./css/img/game/chão.png" class="groundClass" id="ground1">
+            <img src="./css/img/game/chão.png" class="groundClass" id="ground2">
+            <img src="./css/img/game/teto.png" class="roofClass" id="roof1">
+            <img src="./css/img/game/teto.png" class="roofClass" id="roof2">
+
+
+        </div>
+
 
     </div>
-    <button onclick="start()">START</button>
-    <button onclick="podePular()">PULAR</button>
-    <button onclick='start()'>PARAR JOGO</button>
 </body>
 
 </html>
