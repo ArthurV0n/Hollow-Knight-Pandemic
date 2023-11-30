@@ -11,14 +11,14 @@
     <script src="./js/game.js"></script>
     <script src="./js/inimigosItens.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src=".src\controllers\usuarioController.js"></script>
+    <!-- <script src=".src\controllers\usuarioController.js"></script> -->
 
 
 
 
 </head>
 
-<body style="background-color: black;">
+<body style="background-color: #00000022;">
     <div class="background">
 
         <img class="back" src="./css/img/home/Screenshot_HK_Hollow_Knight_02.webp">
@@ -148,6 +148,35 @@
                 <canvas id="myChart"></canvas>
             </div>
         </div>
+
+
+        <div class="botao" onclick="sugestion()">
+
+            <img src="./css/img/select2.png" style="width: 2%;  margin-right: 1vw;;" alt=""><button
+                class="buttonSug">Sugestão de Melhoria</button><img src=" ./css/img/select3.png" alt=""
+                style="width: 2%; margin-left: 1vw;">
+
+
+        </div>
+
+    </div>
+
+    <div id="idSugestao" class="SugestaoClass" style="margin: 0;">
+        <div class="divisoria">
+            <img src="./css/img/home/divisoria.png">
+        </div>
+
+        <h1>Sugestão</h1>
+
+        <textarea name="" id="textSugestion" cols="30" rows="10" oninput="qtdText()"></textarea>
+
+        <button onclick="enviarmsg()">Enviar</button>
+
+        <div id="qtdCharac" style="color: black;">2905</div>
+
+        <div class="divisoria" style="margin: 0;">
+            <img src="./css/img/home/divisoria.png">
+        </div>
     </div>
 
 
@@ -159,6 +188,70 @@
 
 
 <script>
+
+    var qtdChar = 0
+
+    function qtdText() {
+        const tamanhoText = textSugestion.value;
+        qtdCharac.innerHTML = Number(tamanhoText.length);
+        // alert(tamanhoText.length)
+    }
+
+    function enviarmsg() {
+
+        var descricao = textSugestion.value;
+        var idUsuario = sessionStorage.ID_USUARIO;
+
+        fetch("/usuarios/cadastrarSugestao", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                descricaoVar: descricao,
+                idUsuarioVar: idUsuario,
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    // cardErro.style.display = "block";
+                    alert('Sugestão enviada')
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                // finalizarAguardar();
+            });
+
+    }
+
+
+
+    function sugestion() {
+
+        if (idSugestao.style.display == 'flex') {
+            idSugestao.style.display = 'none';
+        } else {
+
+            idSugestao.style.display = 'flex'
+
+        }
+
+
+
+    }
+
+
+
+
+
+
 
     const ctx = document.getElementById('myChart');
 

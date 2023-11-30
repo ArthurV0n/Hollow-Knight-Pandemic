@@ -16,14 +16,14 @@ function autenticar(req, res) {
                 function (resultadoAutenticar) {
                     console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
                     console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
-                    if (resultadoAutenticar.length == 1) {
+                    if (resultadoAutenticar.length > 0) {
 
 
                         res.json({
 
                             nome: resultadoAutenticar[0].nome,
                             senha: resultadoAutenticar[0].senha,
-                            id: resultadoAutenticar[0].id
+                            id: resultadoAutenticar[0].id,
 
                         });
                     }
@@ -48,9 +48,6 @@ function cadastrar(req, res) {
 
 
     console.log(nome)
-
-
-
 
     // Faça as validações dos valores
     if (nome == undefined) {
@@ -79,11 +76,41 @@ function cadastrar(req, res) {
 }
 
 
+function cadastrarSugestao(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var descricao = req.body.descricaoVar;
+    var idUsuario = req.body.idUsuarioVar;
+
+
+
+    // console.log(nome)
+
+    // Faça as validações do
+    // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+    usuarioModel.cadastrarSugestao(descricao, idUsuario)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+
 
 
 
 module.exports = {
 
     autenticar,
-    cadastrar
+    cadastrar,
+    cadastrarSugestao
 }

@@ -15,12 +15,86 @@
   font-size: 50px;
 }
 
+.SugestaoClass {
+  z-index: 1;
+  position: fixed;
+  width: 100vw;
+  height: 90vh;
+  background-color: rgba(3, 0, 11, 0.941);
+  display: none;
+  align-items: center;
+  flex-direction: column;
+}
+.SugestaoClass > h1 {
+  margin-top: 0vh;
+  color: white;
+}
+.SugestaoClass textarea {
+  margin-top: 20vh;
+  position: absolute;
+  width: 60%;
+  height: 50%;
+  background-color: rgb(255, 255, 255);
+  vertical-align: top;
+  padding: 10px;
+  font-size: 20px;
+}
+.SugestaoClass > button {
+  display: flex;
+  margin-top: 50vh;
+  width: 10vw;
+  height: 3vh;
+  padding-top: 10px;
+  padding-left: 90px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.SugestaoClass #qtdCharac {
+  position: relative;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 50px;
+  right: 30vw;
+  background-color: cornflowerblue;
+  color: black;
+  font-size: 50px;
+}
+
+.botao {
+  position: fixed;
+  display: flex;
+  justify-content: flex-end;
+  bottom: 0px;
+  margin-bottom: 2vh;
+  width: 100%;
+  right: 50px;
+}
+.botao .buttonSug {
+  width: 5vw;
+  height: 2vh;
+  height: 5vh;
+  background: none;
+  color: white;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.botao:hover .buttonSug {
+  margin: 0px 10px;
+}
+
+.botao:active .buttonSug {
+  margin: 0px 5px;
+}
+
 a {
   text-decoration: none;
   color: white;
 }
 
 .background {
+  z-index: -1;
   position: fixed;
   display: flex;
   background-repeat: no-repeat;
@@ -36,30 +110,7 @@ a {
 .pagina {
   position: absolute;
   margin-top: 100vh;
-  background-color: black;
-}
-
-.start {
-  POSITION: ABSOLUTE;
-  height: 63vh;
-  width: 65vw;
-  cursor: pointer;
-}
-.start > div {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3vw;
-  color: rgba(255, 255, 255, 0.35);
-}
-.start > div > h1 {
-  margin-top: 20vh;
-}
-
-.start:active {
-  transform: translateY(5px);
-  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.9333333333);
 }
 
 .graficoClass {

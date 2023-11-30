@@ -3,8 +3,7 @@ var database = require("../database/config")
 function cadastrarPonto(pontuacao, idUsuario) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", pontuacao, idUsuario);
 
-    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
-    //  e na ordem de inserção dos dados.
+
     var instrucao = `
           INSERT INTO pontuacao (pontos, fkusuario) VALUES (${pontuacao},${idUsuario} );
     `;
@@ -12,20 +11,46 @@ function cadastrarPonto(pontuacao, idUsuario) {
     return database.executar(instrucao);
 
 }
-function buscarPorPontosBD(pontos) {
-    instrucaoSql = `select max(pontos) from pontuacao join usuario on usuario.id = pontuacao.fkusuario where usuario.id = 1; = ${pontos}`;
+function updatePonto(pontuacao, idUsuario) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", pontuacao, idUsuario);
 
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
+
+    var instrucao = `
+    update pontuacao set pontos = ${pontuacao} where fkusuario=${idUsuario};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+
+}
+
+function autenticar(idUser) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", idUser)
+    var instrucao = `
+    select max(pontos) as pontosMax from pontuacao where fkusuario = ${idUser};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+
+
+}
+
+function classificacao() {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ")
+    var instrucao = `
+    select pontos as listapontos from pontuacao order by pontos desc limit 3;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+
+
 }
 
 
 
 
-
-
-
 module.exports = {
+    classificacao,
+    updatePonto,
     cadastrarPonto,
-    buscarPorPontosBD
+    autenticar
 };

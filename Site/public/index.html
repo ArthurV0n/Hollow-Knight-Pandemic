@@ -158,15 +158,15 @@
     }
 
     if (
-      !(senhaVar.indexOf("#") > 0 ||
-        senhaVar.indexOf("@") > 0 ||
-        senhaVar.indexOf("!") > 0 ||
-        senhaVar.indexOf("%") > 0 ||
-        senhaVar.indexOf("*") > 0 ||
-        senhaVar.indexOf("$") > 0 ||
-        senhaVar.indexOf("_") > 0 ||
-        senhaVar.indexOf("-") > 0 ||
-        senhaVar.indexOf("&") > 0)
+      !(senhaVar.indexOf("#") > -1 ||
+        senhaVar.indexOf("@") > -1 ||
+        senhaVar.indexOf("!") > -1 ||
+        senhaVar.indexOf("%") > -1 ||
+        senhaVar.indexOf("*") > -1 ||
+        senhaVar.indexOf("$") > -1 ||
+        senhaVar.indexOf("_") > -1 ||
+        senhaVar.indexOf("-") > -1 ||
+        senhaVar.indexOf("&") > -1)
     ) {
       erroMensagem += `-A senha deve possuir no mínimo 1 caracter especial <br>`;
       cardErro.style.display = "block";
@@ -307,6 +307,7 @@
           console.log(JSON.stringify(json));
           sessionStorage.NOME_USUARIO = json.nome;
           sessionStorage.ID_USUARIO = json.id;
+          sessionStorage.PONTOS_GAME = json.pontos;
 
           setTimeout(function () {
             window.location = "home.html";

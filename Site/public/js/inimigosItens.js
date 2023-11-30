@@ -6,9 +6,21 @@ var inimigoHornedHusk = "./css/img/game/inimigos/huskHorned.gif";
 function start() {
     if (stopedgame == 0) {
         stopedgame = 1
+        if (sessionStorage.PONTOS_GAME == 'undefined') {
+            cadastrarPonto()
+            console.log('CADASTRAR 0')
+            console.log(sessionStorage.PONTOS_GAME)
+
+        }
+        buscarPontosBD()
         mortePlayer()
-        buscarPorPontosBD()
-        // cadastrarPonto()
+        classificar()
+        if (sessionStorage.PONTOS_GAME < qtdGeo || sessionStorage.PONTOS_GAME == undefined) {
+            cadastrarPonto()
+            console.log(sessionStorage.PONTOS_GAME)
+
+        }
+
 
     }
     else if (stopedgame == 1) {
@@ -27,7 +39,7 @@ function start() {
 
 
 
-    console.log(stopedgame);
+
 
     item.style.display = 'none';
 
@@ -42,7 +54,7 @@ function start() {
 
 function loopChamar() {
     if (stopedgame == 1) return
-    console.log(stopedgame);
+
 
     inimigo.style.display = 'none'
     inimigo.style.animation = 'none'

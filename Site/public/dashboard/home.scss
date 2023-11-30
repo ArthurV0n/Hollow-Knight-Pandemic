@@ -22,56 +22,14 @@
 
 
 .SugestaoClass {
-    z-index: 1;
+
     position: fixed;
-    width: 100vw;
+    width: 90vw;
     height: 90vh;
-    background-color: rgba(3, 0, 11, 0.941);
-    display: none;
-
-    align-items: center;
-    flex-direction: column;
-
-    >h1 {
-
-        margin-top: 0vh;
-        color: white;
-    }
-
-    textarea {
-        margin-top: 20vh;
-        position: absolute;
-        width: 60%;
-        height: 50%;
-        background-color: rgb(255, 255, 255);
-        vertical-align: top;
-        padding: 10px;
-        font-size: 20px;
+    display: flex;
+    background-color: aqua;
 
 
-    }
-
-    >button {
-        display: flex;
-        margin-top: 50vh;
-        width: 10vw;
-        height: 3vh;
-        padding-top: 10px;
-        padding-left: 90px;
-        font-size: 20px;
-        font-weight: bold;
-    }
-
-    #qtdCharac {
-        position: relative;
-        width: fit-content;
-        height: 50px;
-        right: 30vw;
-        background-color: cornflowerblue;
-        color: black;
-        font-size: 50px;
-
-    }
 }
 
 .botao {
@@ -108,7 +66,10 @@
     margin: 0px 5px;
 }
 
+.botao:active .sugetao {
 
+    display: flex;
+}
 
 a {
     text-decoration: none;
@@ -116,8 +77,6 @@ a {
 }
 
 .background {
-
-    z-index: -1;
     position: fixed;
     display: flex;
 
@@ -139,7 +98,7 @@ a {
 .pagina {
     position: absolute;
     margin-top: 100vh;
-    background-color: #000000ee;
+    background-color: black;
 }
 
 

@@ -7,8 +7,14 @@ router.post("/cadastrarPonto", function (req, res) {
     gameController.cadastrarPonto(req, res);
 });
 
-router.post("/buscarPorPontosBD", function (req, res) {
-    gameController.buscarPorPontosBD(req, res);
+router.post("/autenticar", function (req, res) {
+    gameController.autenticar(req, res);
+});
+
+
+
+router.post("/classificacao", function (req, res) {
+    gameController.classificacao(req, res);
 });
 
 
